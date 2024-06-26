@@ -25,4 +25,5 @@ Add, remove, or update livestock in the database
 
 ***
 💬 **Summary**
+
 I really enjoyed this project. Seeing the database, coding, and visuals come together into a functional app was a great feeling! If I could start over, knowing what I now know after going through the entire process, there would be some changes I would make. However, I am overall happy with the functionality and accuracy of the calculations within the app.
