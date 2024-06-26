@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LMSGUIApp.Pages.DeleteLivestock"
+             Title="Delete Livestock">
+    <ScrollView>
+        <Border Margin="40,40" BackgroundColor="MintCream" StrokeShape="RoundRectangle 5">
+            <VerticalStackLayout Padding="20" Spacing="20" HorizontalOptions="Center">
+                <!-- Centered Label -->
+                <Label Text="Delete Livestock" Style="{StaticResource BlackHeaderStyle}" WidthRequest="300" HorizontalOptions="Center" />
+
+                <Grid HorizontalOptions="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Left Column -->
+                    <StackLayout Grid.Column="0" Padding="10" Spacing="5" HorizontalOptions="CenterAndExpand">
+                        <Entry x:Name="IdEntry" HeightRequest="50" Placeholder="Enter ID" Keyboard="Numeric" WidthRequest="210" TextColor="Black" BackgroundColor="LightBlue" HorizontalOptions="Center" />
+
+                        <!-- Buttons in the first column -->
+                        <Grid Margin="0,10,0,0" HorizontalOptions="CenterAndExpand">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <!-- Display button -->
+                            <Button Text="Display Details" Clicked="OnDisplayDetailsClicked" Style="{StaticResource MainMenuButtonStyle}" WidthRequest="150" HeightRequest="50" Grid.Column="1" Margin="0,0,0,0"/>
+
+                            <!-- Close button -->
+                            <Button Text="X" Clicked="OnCloseDetailsClicked" Style="{StaticResource CloseDisplayX}" Grid.Column="2" WidthRequest="50" HeightRequest="50" Margin="10,0,0,0"/>
+                        </Grid>
+
+                        <!-- Display area for livestock data -->
+                        <StackLayout x:Name="LivestockDetailsStackLayout" IsVisible="False" Margin="0,20" Padding="10" BackgroundColor="White" Spacing="10" HorizontalOptions="FillAndExpand">
+                            <Label Text="Selected Livestock Details:" Style="{StaticResource BlackLabelStyle}" HorizontalOptions="Center"/>
+
+                            <!-- Livestock details -->
+                            <StackLayout HorizontalOptions="FillAndExpand">
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="ID:" Style="{StaticResource BlackLabelStyle}" HorizontalOptions="Start" WidthRequest="80"/>
+                                    <Label x:Name="LivestockIdLabel" Style="{StaticResource BlackLabelStyle}" HorizontalOptions="StartAndExpand"/>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Type:" Style="{StaticResource BlackLabelStyle}" HorizontalOptions="Start" WidthRequest="80"/>
+                                    <Label x:Name="LivestockTypeLabel" Style="{StaticResource BlackLabelStyle}" HorizontalOptions="StartAndExpand"/>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Cost:" Style="{StaticResource BlackLabelStyle}" HorizontalOptions="Start" WidthRequest="80"/>
+                                    <Label x:Name="LivestockCostLabel" Style="{StaticResource BlackLabelStyle}" HorizontalOptions="StartAndExpand"/>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Weight:" Style="{StaticResource BlackLabelStyle}" HorizontalOptions="Start" WidthRequest="80"/>
+                                    <Label x:Name="LivestockWeightLabel" Style="{StaticResource BlackLabelStyle}" HorizontalOptions="StartAndExpand"/>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Colour:" Style="{StaticResource BlackLabelStyle}" HorizontalOptions="Start" WidthRequest="80"/>
+                                    <Label x:Name="LivestockColourLabel" Style="{StaticResource BlackLabelStyle}" HorizontalOptions="StartAndExpand"/>
+                                </StackLayout>
+
+                                <!-- Wool Label -->
+                                <StackLayout x:Name="WoolStackLayout" IsVisible="False" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                                    <Label Text="Wool:" Style="{StaticResource BlackLabelStyle}" HorizontalOptions="Start" WidthRequest="80"/>
+                                    <Label x:Name="LivestockWoolLabel" Style="{StaticResource BlackLabelStyle}" HorizontalOptions="StartAndExpand"/>
+                                </StackLayout>
+
+                                <!-- Milk Label -->
+                                <StackLayout x:Name="MilkStackLayout" IsVisible="False" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                                    <Label Text="Milk:" Style="{StaticResource BlackLabelStyle}" HorizontalOptions="Start" WidthRequest="80"/>
+                                    <Label x:Name="LivestockMilkLabel" Style="{StaticResource BlackLabelStyle}" HorizontalOptions="StartAndExpand"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <!-- Right Column -->
+                    <VerticalStackLayout Grid.Column="1" Padding="10" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" Spacing="20">
+                        <Button Text="Delete" Clicked="OnDeleteClicked" HeightRequest="50" Style="{StaticResource DeleteButton}" WidthRequest="150" Margin="0,0,0,0"/>
+                        <Button Text="Reset" Clicked="OnResetClicked" HeightRequest="50" Style="{StaticResource ResetButton}" WidthRequest="150" Margin="0,-5,0,0"/>
+                    </VerticalStackLayout>
+                </Grid>
+
+            </VerticalStackLayout>
+        </Border>
+    </ScrollView>
+</ContentPage>

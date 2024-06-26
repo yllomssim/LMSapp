@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:LMSGUIApp.ViewModels"
+             x:Class="LMSGUIApp.Pages.FutureEstimations"
+             Title="Back to Main Menu">
+
+    <ContentPage.BindingContext>
+        <viewmodels:MainViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <Grid BackgroundColor="MintCream" Padding="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="3*" />
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="Future Estimations" Style="{StaticResource BlackHeaderStyle}" Margin="10" HorizontalOptions="Center" />
+
+            <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="3*" />
+                </Grid.ColumnDefinitions>
+
+                <StackLayout Grid.Column="0" HorizontalOptions="End" VerticalOptions="StartAndExpand">
+                    <!-- Livestock Type Picker -->
+                    <Label Text="Select livestock type:" Style="{StaticResource BlackLabelStyle}" Margin="0, 0, 0, 0" HorizontalOptions="Start" />
+                    <Picker x:Name="LivestockPicker" Margin="0,0, 0, 30" Style="{StaticResource EntryStyle}">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Cow</x:String>
+                                <x:String>Sheep</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+
+                    <!-- Investment Quantity Entry -->
+                    <Label Text="Enter investment quantity:" Style="{StaticResource BlackLabelStyle}" HorizontalOptions="Start" Margin="0, 0, 0, 0"/>
+                    <Entry x:Name="QuantityEntry" Placeholder="Enter quantity" Style="{StaticResource EntryStyle}" Keyboard="Numeric" Margin="0,0, 0, 30" />
+
+                    <!-- Calculate and Reset Buttons -->
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Start" Margin="0,0, 0, 30">
+                        <Button Text="Calculate" Clicked="OnCalculateButtonClicked" Style="{StaticResource SubmitButton}" Margin="10, 20, 10, 0" />
+                        <Button Text="Reset" Clicked="OnResetButtonClicked" Style="{StaticResource ResetButton}" Margin="10, 20, 10, 0" />
+                    </StackLayout>
+                </StackLayout>
+
+                <!-- Results Section -->
+                <Frame Grid.Column="1" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="LightBlue" WidthRequest="300" HeightRequest="200" Margin="10, 40, 10, 0" CornerRadius="15" Padding="0" HasShadow="False" BorderColor="Transparent">
+                    <StackLayout>
+                        <Label Text="Results:" Style="{StaticResource BlackLabelStyle}" HorizontalOptions="Center" Margin="10, 20, 10, 0"/>
+                        <Label x:Name="ResultLabel" Style="{StaticResource BlackLabelStyle}" VerticalOptions="StartAndExpand" HorizontalOptions="Start"/>
+                    </StackLayout>
+                </Frame>
+            </Grid>
+        </Grid>
+    </ScrollView>
+</ContentPage>

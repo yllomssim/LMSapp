@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+    
+ <!--Main Menu Page when opening the program-->
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:LMSGUIApp.Models"
+             xmlns:viewmodels="clr-namespace:LMSGUIApp.ViewModels"
+             x:Class="LMSGUIApp.Pages.DataPage"
+             Title="Home Page">
+    <ScrollView>
+    <Border Margin="40,40" BackgroundColor="MintCream" StrokeShape="RoundRectangle 5" >
+            <StackLayout Orientation="Vertical" HorizontalOptions="Center" Padding="20,20,20,20" Spacing="10">
+            <Image Source="bull_side.png" HorizontalOptions="Center" HeightRequest="200" Margin="0"/>
+            <Label
+             Text=" LIVESTOCK MANAGEMENT SYSTEM "
+             Style="{StaticResource BlackHeaderStyle}"
+             SemanticProperties.HeadingLevel="Level1" />
+            <Label
+             Text="Main Menu"
+             TextColor="DarkCyan"
+             FontAttributes="Bold"
+             Style="{StaticResource SubHeadline}"
+             SemanticProperties.HeadingLevel="Level3"
+             SemanticProperties.Description="Main menu Home" />
+
+                <Grid>
+                <!-- Row Definitions -->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <!-- Column Definitions -->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="400" />
+                        <ColumnDefinition Width="400" />
+                    </Grid.ColumnDefinitions>
+
+                    
+                    <!-- Header Labels -->
+                <Label Text="Livestock" Grid.Row="0" Grid.Column="0" Style="{StaticResource DarkCyanHeaderStyle}"/>
+                    <Label Text="Statistics" Grid.Row="0" Grid.Column="1" Style="{StaticResource DarkCyanHeaderStyle}"/>
+
+                <!-- Buttons Column 0 -->
+                <Button Text="View All Livestock" Clicked="OnNavigateButtonClickedViewAll" Style="{StaticResource MainMenuButtonStyle}" Grid.Row="1" Grid.Column="0" Margin="5"/>
+                <Button Text="Current Livestock Data" Clicked="OnNavigateButtonClickedCurrentLivestockData" Style="{StaticResource MainMenuButtonStyle}" Grid.Row="2" Grid.Column="0" Margin="5"/>
+                <Button Text="Edit Livestock" Clicked="OnNavigateButtonClickedEditLivestock" Style="{StaticResource MainMenuButtonStyle}" Grid.Row="3" Grid.Column="0" Margin="5"/>
+
+                <!-- Buttons Column 1 -->
+                <Button Text="Livestock Financial Query" Clicked="OnNavigateButtonClickedLivestockQuery" Style="{StaticResource MainMenuButtonStyle}" Grid.Row="1" Grid.Column="1" Margin="5"/>
+                <Button Text="Future Estimations" Clicked="OnNavigateButtonClickedFutureEstimations" Style="{StaticResource MainMenuButtonStyle}" Grid.Row="2" Grid.Column="1" Margin="5"/>
+                <Button Text="Tax and Profits" Clicked="OnNavigateButtonClickedTaxProfits" Style="{StaticResource MainMenuButtonStyle}" Grid.Row="3" Grid.Column="1" Margin="5"/>
+
+            </Grid>
+             <Button
+            x:Name="Btn"
+            Text="Sign up" 
+            TextColor="DarkCyan"
+            FontAttributes="Bold"
+            BackgroundColor="LightCyan"
+            SemanticProperties.Hint="Info"
+            Clicked="ButtonClicked"
+            HorizontalOptions="Center" />
+            </StackLayout>
+    </Border>
+    </ScrollView>
+</ContentPage>

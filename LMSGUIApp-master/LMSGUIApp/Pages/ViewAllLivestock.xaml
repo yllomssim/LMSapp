@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:LMSGUIApp.ViewModels"
+             x:Class="LMSGUIApp.Pages.ViewAllLivestock"
+             Title="Back to Main Menu">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="SeparatorStyle" TargetType="BoxView">
+                <Setter Property="HeightRequest" Value="1" />
+                <Setter Property="Color" Value="Gray" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.BindingContext>
+        <viewmodels:MainViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <Frame Margin="40"
+               BackgroundColor="LightCyan"
+               CornerRadius="5"
+               BorderColor="Black"
+               Padding="10">
+            <StackLayout>
+                <StackLayout>
+                    <Label Text="View All Livestock" Style="{StaticResource BlackHeaderStyle}" Margin="10" WidthRequest="300" />
+                    <Grid Padding="60,0,60,0">
+                        <!-- Define grid structure -->
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Header Labels -->
+                        <Label Text="ID" Style="{StaticResource DarkCyanSmallHeaderStyle}" Grid.Row="0" Grid.Column="0" />
+                        <Label Text="Livestock Type" Style="{StaticResource DarkCyanSmallHeaderStyle}" Grid.Row="0" Grid.Column="1" />
+                        <Label Text="Cost" Style="{StaticResource DarkCyanSmallHeaderStyle}" Grid.Row="0" Grid.Column="2" />
+                        <Label Text="Weight (kg)" Style="{StaticResource DarkCyanSmallHeaderStyle}" Padding="5" Grid.Row="0" Grid.Column="3" />
+                        <Label Text="Colour" Style="{StaticResource DarkCyanSmallHeaderStyle}" Grid.Row="0" Grid.Column="4" />
+                        <Label Text="Product (kg)" Style="{StaticResource DarkCyanSmallHeaderStyle}" Grid.Row="0" Grid.Column="5" />
+
+                        <!-- Data Rows -->
+                        <CollectionView BackgroundColor="MintCream"
+                            ItemsSource="{Binding Livestock}"
+                            Grid.Row="1"
+                            Grid.ColumnSpan="6">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Padding="5">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label TextColor="Black" Text="{Binding Id}" Grid.Column="0"/>
+                                        <Label TextColor="Black" Text="{Binding Type}" Grid.Column="1"/>
+                                        <Label TextColor="Black" Text="{Binding Cost, StringFormat='{}{0:C2}'}" Grid.Column="2"/>
+                                        <Label TextColor="Black" Text="{Binding Weight, StringFormat='{}{0:F1}'}" Grid.Column="3"/>
+                                        <Label TextColor="Black" Text="{Binding Colour}" Grid.Column="4"/>
+
+                                        <!-- Product Label -->
+                                        <Label TextColor="Black" Grid.Column="5">
+                                            <Label.Triggers>
+                                                <DataTrigger TargetType="Label" Binding="{Binding Type, StringFormat='{}{0:F1'}" Value="Sheep">
+                                                    <Setter Property="Text" Value="{Binding Wool}" />
+                                                </DataTrigger>
+                                                <DataTrigger TargetType="Label" Binding="{Binding Type, StringFormat='{}{0:F1'}" Value="Cow">
+                                                    <Setter Property="Text" Value="{Binding Milk}" />
+                                                </DataTrigger>
+                                            </Label.Triggers>
+                                        </Label>
+
+                                        <!-- Horizontal line -->
+                                        <BoxView Style="{StaticResource SeparatorStyle}" Grid.ColumnSpan="6" Grid.Row="1" Margin="0,30,0,0"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </Grid>
+                </StackLayout>
+            </StackLayout>
+        </Frame>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LMSGUIApp.Pages.UpdateLivestock"
+             Title="Update Livestock">
+    <ScrollView>
+        <Border Margin="40,40" BackgroundColor="MintCream" StrokeShape="RoundRectangle 5">
+            <StackLayout Padding="0" HorizontalOptions="Center">
+
+                <Label Text="Update Existing Livestock" Style="{StaticResource BlackHeaderStyle}" SemanticProperties.HeadingLevel="Level1"/>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!--ID Entry-->
+                    <Entry x:Name="IdEntry" HeightRequest="50" HorizontalOptions="End" Placeholder="Enter ID" Keyboard="Numeric" WidthRequest="150" TextColor="Black" BackgroundColor="LightBlue" Grid.Column="0" Margin="0,0,10,0"/>
+                    
+                    <!--Dispaly Details Button-->
+                    <Button Text="Display Details" HorizontalOptions="Start" Clicked="OnDisplayDetailsClicked" Style="{StaticResource MainMenuButtonStyle}" WidthRequest="150" Grid.Column="1" />
+                    
+                    <!--Close Details X Button-->
+                    <Button Text="X" Clicked="OnCloseDetailsClicked" Style="{StaticResource CloseDisplayX}" Grid.Column="2" VerticalOptions="Start" HorizontalOptions="Start" Margin="10,20,10,0"/>
+                </Grid>
+
+                <StackLayout x:Name="LivestockDetailsLayout" IsVisible="False" Margin="0,20" Padding="10" HorizontalOptions="CenterAndExpand">
+                    <Label Text="Selected Livestock Details:" Style="{StaticResource BlackLabelStyle}" Margin="0,0,0,10"/>
+
+                    <Grid HorizontalOptions="CenterAndExpand">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="ID:" Style="{StaticResource BlackLabelStyle}" Grid.Row="0" Grid.Column="0" WidthRequest="200"/>
+                        <Label x:Name="LivestockIdLabel" Style="{StaticResource BlackLabelStyle}" Grid.Row="0" Grid.Column="1"/>
+
+                        <Label Text="Type:" Style="{StaticResource BlackLabelStyle}" Grid.Row="1" Grid.Column="0" WidthRequest="200"/>
+                        <Label x:Name="LivestockTypeLabel" Style="{StaticResource BlackLabelStyle}" Grid.Row="1" Grid.Column="1"/>
+
+                        <Label Text="Colour:" Style="{StaticResource BlackLabelStyle}" Grid.Row="2" Grid.Column="0" WidthRequest="200"/>
+                        <Label x:Name="LivestockColourLabel" Style="{StaticResource BlackLabelStyle}" Grid.Row="2" Grid.Column="1"/>
+
+                        <Label Text="Cost:" Style="{StaticResource BlackLabelStyle}" Grid.Row="3" Grid.Column="0" WidthRequest="200"/>
+                        <Label x:Name="LivestockCostLabel" Style="{StaticResource BlackLabelStyle}" Grid.Row="3" Grid.Column="1"/>
+
+                        <Label Text="Weight:" Style="{StaticResource BlackLabelStyle}" Grid.Row="4" Grid.Column="0" WidthRequest="200"/>
+                        <Label x:Name="LivestockWeightLabel" Style="{StaticResource BlackLabelStyle}" Grid.Row="4" Grid.Column="1"/>
+
+                        <StackLayout x:Name="WoolStackLayout" IsVisible="False" Grid.Row="5" Grid.ColumnSpan="2" Orientation="Horizontal">
+                            <Label Text="Wool:" Style="{StaticResource BlackLabelStyle}" WidthRequest="200"/>
+                            <Label x:Name="LivestockWoolLabel" Style="{StaticResource BlackLabelStyle}" />
+                        </StackLayout>
+
+                        <StackLayout x:Name="MilkStackLayout" IsVisible="False" Grid.Row="6" Grid.ColumnSpan="2" Orientation="Horizontal">
+                            <Label Text="Milk:" Style="{StaticResource BlackLabelStyle}" WidthRequest="200"/>
+                            <Label x:Name="LivestockMilkLabel" Style="{StaticResource BlackLabelStyle}" />
+                        </StackLayout>
+                    </Grid>
+                </StackLayout>
+
+                <Label Text="Cost" Style="{StaticResource BlackLabelStyle}" HorizontalOptions="Start" WidthRequest="100" Margin="100,0,0,0" />
+                <Entry x:Name="CostEntry" Placeholder="Enter Cost" Keyboard="Numeric" Style="{StaticResource EntryStyle}" Margin="0,0,0,20" Text="{Binding Cost}"/>
+
+                <Label Text="Weight" Style="{StaticResource BlackLabelStyle}" HorizontalOptions="Start" WidthRequest="100" Margin="100,0,0,0" />
+                <Entry x:Name="WeightEntry" Placeholder="Enter Weight" Keyboard="Numeric" Style="{StaticResource EntryStyle}" Margin="0,0,0,20" Text="{Binding Weight}"/>
+
+                <Label Text="Produce" Style="{StaticResource BlackLabelStyle}" HorizontalOptions="Start" WidthRequest="100" Margin="100,0,0,0" />
+                <Entry x:Name="ProduceEntry" Placeholder="Enter Produce" Keyboard="Numeric" Style="{StaticResource EntryStyle}" Margin="0,0,0,20" Text="{Binding Produce}"/>
+
+                <Label Text="Colour" Style="{StaticResource BlackLabelStyle}" HorizontalOptions="Start" WidthRequest="100" Margin="100,0,0,0"/>
+                <Picker x:Name="ColourPicker" ItemsSource="{Binding Colours}" SelectedItem="{Binding SelectedColour}" Style="{StaticResource EntryStyle}" Margin="0,0,0,20"/>
+
+                <HorizontalStackLayout Spacing="10">
+                    <Button Text="Update" Command="{Binding UpdateLivestockCommand}" Style="{StaticResource SubmitButton}" HeightRequest="40" Margin="95,0,0,0"/>
+                    <Button Text="Reset" Clicked="OnResetClicked" Style="{StaticResource ResetButton}"/>
+                </HorizontalStackLayout>
+
+            </StackLayout>
+        </Border>
+    </ScrollView>
+</ContentPage>

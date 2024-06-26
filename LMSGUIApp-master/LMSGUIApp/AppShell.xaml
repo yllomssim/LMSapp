@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="LMSGUIApp.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:LMSGUIApp"
+    xmlns:Pages="clr-namespace:LMSGUIApp.Pages"
+    Shell.FlyoutBehavior="Disabled"
+    Title="LMSGUIApp">
+
+    <TabBar>
+        <!--<Tab Title="Data Listing" Shell.NavBarIsVisible="false">
+            <ShellContent ContentTemplate="{DataTemplate Pages:DataPage}"/>
+        </Tab>
+        <Tab Title="Report" Shell.NavBarIsVisible="false">
+            <ShellContent ContentTemplate="{DataTemplate Pages:ReportPage}"/>
+        </Tab>
+        <Tab Title="Report" Shell.NavBarIsVisible="false">
+            <ShellContent ContentTemplate="{DataTemplate Pages:ViewAllLivestock}"/>
+        </Tab>-->
+        
+    </TabBar>
+</Shell>

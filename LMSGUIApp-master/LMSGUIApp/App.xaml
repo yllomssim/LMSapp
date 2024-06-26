@@ -1,0 +1,190 @@
+﻿<?xml version = "1.0" encoding = "UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:LMSGUIApp"
+             x:Class="LMSGUIApp.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary>
+                    <!-- Button style with 10px padding -->
+                    <Style TargetType="Button" x:Key="MainMenuButtonStyle">
+                        <Setter Property="BackgroundColor" Value="PowderBlue" />
+                        <Setter Property="TextColor" Value="Black" />
+                        <Setter Property="Padding" Value="15" />
+                        <Setter Property="Margin" Value="15" />
+                        <Setter Property="BorderColor" Value="PowderBlue" />
+                        <Setter Property="BorderWidth" Value="2" />
+                        <Setter Property="VisualStateManager.VisualStateGroups">
+                            <VisualStateGroupList>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <!-- Default state -->
+                                    <VisualState x:Name="Normal"/>
+                                    <!-- Hover state -->
+                                    <VisualState x:Name="PointerOver">
+                                        <VisualState.Setters>
+                                            <Setter Property="BackgroundColor" Value="LightCyan"/>
+                                            <Setter Property="TextColor" Value="Black"/>
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateGroupList>
+                        </Setter>
+                    </Style>
+                    <Style x:Key="DarkCyanHeaderStyle" TargetType="Label">
+                        <Setter Property="FontAttributes" Value="Bold"/>
+                        <Setter Property="FontSize" Value="Medium"/>
+                        <Setter Property="TextColor" Value="CadetBlue"/>
+                        <Setter Property="Padding" Value="5"/>
+                        <Setter Property="HorizontalOptions" Value="Center"/>
+                        <Setter Property="Margin" Value="0,10"/>
+                        <Setter Property="FontFamily" Value="Georgia"/>
+                    </Style>
+                    <Style x:Key="BlackHeaderStyle" TargetType="Label">
+                        <Setter Property="FontAttributes" Value="Bold"/>
+                        <Setter Property="FontSize" Value="Medium"/>
+                        <Setter Property="TextColor" Value="Black"/>
+                        <Setter Property="Padding" Value="5"/>
+                        <Setter Property="WidthRequest" Value="500"/>
+                        <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                        <Setter Property="HorizontalOptions" Value="Center"/>
+                        <Setter Property="Margin" Value="0,10"/>
+                        <Setter Property="FontFamily" Value="Georgia"/>
+                    </Style>
+                    <Style x:Key="DarkCyanSmallHeaderStyle" TargetType="Label">
+                        <Setter Property="FontAttributes" Value="Bold"/>
+                        <Setter Property="HorizontalOptions" Value="Center"/>
+                        <Setter Property="Margin" Value="0,10"/>
+                        <Setter Property="WidthRequest" Value="300"/>
+                        <Setter Property="TextColor" Value="DarkCyan"/>
+                        <Setter Property="Padding" Value="5"/>
+                    </Style>
+                    <Style x:Key="BlackLabelStyle" TargetType="Label">
+                        <Setter Property="FontSize" Value="Micro"/>
+                        <Setter Property="TextColor" Value="Black"/>
+                        <Setter Property="Padding" Value="5"/>
+                        <Setter Property="HorizontalOptions" Value="Start"/>
+                    </Style>
+                    <Style x:Key="SortingPicker" TargetType="Picker">
+                        <Setter Property="FontAttributes" Value="Bold"/>
+                        <Setter Property="WidthRequest" Value="300"/>
+                        <Setter Property="BackgroundColor" Value="LightBlue"/>
+                        <Setter Property="TextColor" Value="Black"/>
+                    </Style>
+                    <Style x:Key="EntryStyle" TargetType="Entry">
+                        <Setter Property="Margin" Value="0,10"/>
+                        <Setter Property="WidthRequest" Value="300"/>
+                        <Setter Property="TextColor" Value="Black"/>
+                        <Setter Property="BackgroundColor" Value="LightBlue"/>
+                    </Style>
+                    <Style x:Key="CenteredLabelStyle" TargetType="Label">
+                        <Setter Property="HorizontalOptions" Value="Center"/>
+                        <Setter Property="VerticalOptions" Value="Center"/>
+                        <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                        <Setter Property="VerticalTextAlignment" Value="Center"/>
+                        <Setter Property="WidthRequest" Value="300"/>
+                        <Setter Property="HeightRequest" Value="70"/>
+                        <Setter Property="TextColor" Value="Black"/>
+
+                    </Style>
+                    <Style x:Key="SubmitButton" TargetType="Button">
+                        <Setter Property="Margin" Value="0,15"/>
+                        <Setter Property="WidthRequest" Value="150"/>
+                        <Setter Property="TextColor" Value="Black"/>
+                        <Setter Property="BackgroundColor" Value="White"/>
+                        <Setter Property="BorderColor" Value="ForestGreen"/>
+                        <Setter Property="BorderWidth" Value="2"/>
+                        <Setter Property="VisualStateManager.VisualStateGroups">
+                            <VisualStateGroupList>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <!-- Default state -->
+                                    <VisualState x:Name="Normal"/>
+                                    <!-- Hover state -->
+                                    <VisualState x:Name="PointerOver">
+                                        <VisualState.Setters>
+                                            <Setter Property="BackgroundColor" Value="ForestGreen"/>
+                                            <Setter Property="TextColor" Value="White"/>
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateGroupList>
+                        </Setter>
+                    </Style>
+                    <Style x:Key="CloseDisplayX" TargetType="Button">
+                        <Setter Property="WidthRequest" Value="20"/>
+                        <Setter Property="HeightRequest" Value="20"/>
+                        <Setter Property="TextColor" Value="Black"/>
+                        <Setter Property="BackgroundColor" Value="White"/>
+                        <Setter Property="BorderColor" Value="DimGray"/>
+                        <Setter Property="Padding" Value="10"/>
+                        <Setter Property="Margin" Value="20, 20"/>
+                        <Setter Property="BorderWidth" Value="2"/>
+                        <Setter Property="VisualStateManager.VisualStateGroups">
+                            <VisualStateGroupList>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <!-- Default state -->
+                                    <VisualState x:Name="Normal"/>
+                                    <!-- Hover state -->
+                                    <VisualState x:Name="PointerOver">
+                                        <VisualState.Setters>
+                                            <Setter Property="BackgroundColor" Value="DimGray"/>
+                                            <Setter Property="TextColor" Value="White"/>
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateGroupList>
+                        </Setter>
+                    </Style>
+                    <Style x:Key="DeleteButton" TargetType="Button">
+                        <Setter Property="Margin" Value="0,20"/>
+                        <Setter Property="WidthRequest" Value="300"/>
+                        <Setter Property="TextColor" Value="Black"/>
+                        <Setter Property="BackgroundColor" Value="White"/>
+                        <Setter Property="BorderColor" Value="Red"/>
+                        <Setter Property="BorderWidth" Value="2"/>
+                        <Setter Property="VisualStateManager.VisualStateGroups">
+                            <VisualStateGroupList>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <!-- Default state -->
+                                    <VisualState x:Name="Normal"/>
+                                    <!-- Hover state -->
+                                    <VisualState x:Name="PointerOver">
+                                        <VisualState.Setters>
+                                            <Setter Property="BackgroundColor" Value="red"/>
+                                            <Setter Property="TextColor" Value="White"/>
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateGroupList>
+                        </Setter>
+                    </Style>
+                    <Style x:Key="ResetButton" TargetType="Button">
+                        <Setter Property="Margin" Value="0,15"/>
+                        <Setter Property="WidthRequest" Value="150"/>
+                        <Setter Property="TextColor" Value="Black"/>
+                        <Setter Property="BackgroundColor" Value="White"/>
+                        <Setter Property="BorderColor" Value="DimGray"/>
+                        <Setter Property="BorderWidth" Value="2"/>
+                        <Setter Property="VisualStateManager.VisualStateGroups">
+                            <VisualStateGroupList>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <!-- Default state -->
+                                    <VisualState x:Name="Normal"/>
+                                    <!-- Hover state -->
+                                    <VisualState x:Name="PointerOver">
+                                        <VisualState.Setters>
+                                            <Setter Property="BackgroundColor" Value="DimGray"/>
+                                            <Setter Property="TextColor" Value="White"/>
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateGroupList>
+                        </Setter>
+                    </Style>
+                </ResourceDictionary>
+                <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
+                <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

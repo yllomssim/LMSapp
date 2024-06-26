@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LMSGUIApp.Pages.InsertNewLivestock"
+             Title="Insert New Livestock">
+    <ScrollView>
+        <Border Margin="40,40" BackgroundColor="MintCream" StrokeShape="RoundRectangle 5" >
+            <StackLayout Padding="20" HorizontalOptions="Center">
+                <Label Text="Insert Animal Details"  Style="{StaticResource BlackHeaderStyle}" SemanticProperties.HeadingLevel="Level1" Margin="0,0,0,10" WidthRequest="300" />
+
+                <Label Text="Animal" Style="{StaticResource BlackLabelStyle}" HorizontalOptions="Start" WidthRequest="100" Margin="200,0,0,0"/>
+                <Picker x:Name="AnimalPicker" ItemsSource="{Binding Animals}" Style="{StaticResource EntryStyle}" SelectedIndexChanged="OnAnimalPickerSelectedIndexChanged" Margin="0,0,0,20"/>
+
+                <Label Text="Colour" Style="{StaticResource BlackLabelStyle}" HorizontalOptions="Start" WidthRequest="100" Margin="200,0,0,0"/>
+                <Picker x:Name="ColourPicker" ItemsSource="{Binding Colours}" Style="{StaticResource EntryStyle}" Margin="0,0,0,20"/>
+
+                <Label Text="Cost" Style="{StaticResource BlackLabelStyle}" HorizontalOptions="Start" WidthRequest="100" Margin="200,0,0,0"/>
+                <Entry x:Name="CostEntry" Placeholder="Enter Cost" Keyboard="Numeric" Style="{StaticResource EntryStyle}" Margin="0,0,0,20"/>
+
+                <Label Text="Weight" Style="{StaticResource BlackLabelStyle}" HorizontalOptions="Start" WidthRequest="100" Margin="200,0,0,0" />
+                <Entry x:Name="WeightEntry" Placeholder="Enter Weight" Keyboard="Numeric" Style="{StaticResource EntryStyle}" Margin="0,0,0,20"/>
+
+                <Label Text="Produce" Style="{StaticResource BlackLabelStyle}" HorizontalOptions="Start" WidthRequest="100" Margin="200,0,0,0" />
+                <Entry x:Name="ProduceEntry" Placeholder="Enter Produce" Style="{StaticResource EntryStyle}" Margin="0,0,0,20"/>
+
+                <HorizontalStackLayout HorizontalOptions="Center" Spacing="10" WidthRequest="700">
+                    <Button Text="Insert" Clicked="OnSubmitClicked" Style="{StaticResource SubmitButton}"/>
+                    <Button Text="Reset" Clicked="OnResetClicked" Style="{StaticResource ResetButton}"/>
+                </HorizontalStackLayout>
+            </StackLayout>
+        </Border>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:LMSGUIApp.ViewModels"
+             x:Class="LMSGUIApp.Pages.CurrentLivestockData"
+             Title="Back to Main Menu">
+
+    <ContentPage.BindingContext>
+        <viewmodels:MainViewModel />
+    </ContentPage.BindingContext>
+
+    <Frame Margin="40"
+           BackgroundColor="MintCream"
+           CornerRadius="5"
+           BorderColor="Black"
+           Padding="10">
+        <ScrollView>
+            <StackLayout>
+                <Label Text="Current Livestock Data" Style="{StaticResource BlackHeaderStyle}" SemanticProperties.HeadingLevel="Level1" Margin="10" WidthRequest="300" />
+            <!-- Display Livestock data -->
+            <Label
+                Text="Based on current livestock data:"
+                Style="{StaticResource BlackLabelStyle}" FontAttributes="Bold" Margin="10, 20, 10, 0" HorizontalOptions="Center" />
+
+            <!-- Display Average of daily profit of single cow  -->
+            <Label x:Name="CowProfitLabel"
+                FontSize="16"
+                Margin="0, 5" />
+            <Label Text="On average, a single cow makes a daily profit:" Style="{StaticResource BlackLabelStyle}" Margin="10, 20, 10, 0" HorizontalOptions="Center" />
+            <Label Text="{Binding AverageDailyProfitPerCow, StringFormat='{0:C2}'}" HorizontalOptions="Center" WidthRequest="300" BackgroundColor="PaleTurquoise" Style="{StaticResource BlackLabelStyle}" Margin="10" />
+
+            <!-- Display Average of daily profit of single sheep -->
+            <Label x:Name="SheepProfitLabel"
+                FontSize="16"
+                Margin="0, 5" />
+            <Label Text="On average, a single sheep makes a daily profit:" Style="{StaticResource BlackLabelStyle}" HorizontalOptions="Center" Margin="10, 20, 10, 0"/>
+            <Label Text="{Binding AverageDailyProfitPerSheep, StringFormat='{0:C2}'}" HorizontalOptions="Center" WidthRequest="300" BackgroundColor="PaleTurquoise" Style="{StaticResource BlackLabelStyle}" Margin="10"/>
+
+            <!-- Display Current daily profit of all cows  -->
+            <Label x:Name="TotalSheepProfitLabel"
+                FontSize="16"
+                Margin="0, 5" />
+            <Label Text="Current daily profit of all cows is:" Style="{StaticResource BlackLabelStyle}" Margin="10, 20, 10, 0" HorizontalOptions="Center" />
+                <Label Text="{Binding TotalProfitAfterTaxAndCostCows, StringFormat='{0:C2}'}" HorizontalOptions="Center" WidthRequest="300" BackgroundColor="PaleTurquoise" Style="{StaticResource BlackLabelStyle}" Margin="10" />
+
+            <!-- Display Current daily profit of all sheep -->
+            <Label x:Name="TotalCowProfitLabel"
+                FontSize="16"
+                Margin="0, 5" />
+            <Label Text="Current daily profit of all sheep is:" Style="{StaticResource BlackLabelStyle}" HorizontalOptions="Center" Margin="10, 20, 10, 0"/>
+                <Label Text="{Binding TotalProfitAfterTaxAndCostSheep, StringFormat='{0:C2}'}" HorizontalOptions="Center" WidthRequest="300" BackgroundColor="PaleTurquoise" Style="{StaticResource BlackLabelStyle}" Margin="10"/>
+        </StackLayout>
+        </ScrollView>
+    </Frame>
+</ContentPage>

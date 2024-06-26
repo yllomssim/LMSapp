@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LMSGUIApp.Pages.ReportPage"
+             Title="Report Page">
+    <Grid Margin="0,30" ColumnDefinitions="*, *" ColumnSpacing="20" HorizontalOptions="Center" 
+          RowDefinitions="*,*" RowSpacing="20" VerticalOptions="Center">
+        <Grid.Resources>
+            <Style TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Start"/>
+                <Setter Property="FontSize" Value="Small"/>
+                <Setter Property="HeightRequest" Value="100"/>
+                <Setter Property="WidthRequest" Value="300"/>
+            </Style>
+        </Grid.Resources>
+        <Label x:Name="GenStatsLabel" Grid.Row="0" Grid.ColumnSpan="2" BackgroundColor="AntiqueWhite" 
+               Text="general stats here..."/>
+        <Picker x:Name="LivestockPicker" 
+                Title="Select livestock type" 
+                Grid.Row="1" 
+                Grid.Column="0" 
+                BackgroundColor="Aquamarine" 
+                HorizontalOptions="Start" 
+                TitleColor="DarkGrey" 
+                WidthRequest="300"  
+                SelectedIndexChanged="OnLivestockTypeSelectionChange">
+
+        </Picker>
+        <Label x:Name="ResultLabel" Grid.Row="1" Grid.Column="1" BackgroundColor="MediumAquamarine" Text="results here..."/>
+    </Grid>
+</ContentPage>

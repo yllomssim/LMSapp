@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LMSGUIApp.Pages.EditLivestock"
+             Title="Back to Main Menu">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!--Buttons to open content view pages-->
+        <StackLayout Grid.Column="0" VerticalOptions="Start" Padding="10,30,0,0">
+            <Button Text="New Livestock" Clicked="OnInsertNewClicked" Style="{StaticResource MainMenuButtonStyle}"/>
+            <Button Text="Update Livestock" Clicked="OnUpdateClicked" Style="{StaticResource MainMenuButtonStyle}"/>
+            <Button Text="Delete Livestock" Clicked="OnDeleteClicked" Style="{StaticResource MainMenuButtonStyle}"/>
+        </StackLayout>
+
+        <ContentView x:Name="ContentArea" Grid.Column="1" Padding="0">
+            <!-- This will be replaced with the selected content -->
+        </ContentView>
+    </Grid>
+</ContentPage>
