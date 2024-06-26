@@ -1,6 +1,6 @@
 # LMSapp
 
-![image](https://github.com/yllomssim/LMSapp/assets/142194837/ace10514-7817-44bb-84f6-49362637948a)
+<img src="https://github.com/yllomssim/LMSapp/assets/142194837/ace10514-7817-44bb-84f6-49362637948a" height="200">
 
 Livestock Management System console app using .NET Maui for App Development class, 2024.
 
